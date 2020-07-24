@@ -9,7 +9,7 @@
 import Foundation
 
 struct OperatingSystem {
-    let name : String
-    let image : String
-    let description : String
+    let name: String
+    let image: String
+    let description: String
 }
