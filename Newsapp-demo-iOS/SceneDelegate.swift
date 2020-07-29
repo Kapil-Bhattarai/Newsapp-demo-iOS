@@ -21,9 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
          // and attached to the scene.
         // This delegate does not imply the connecting scene or session are new
         // (see `application:configurationForConnectingSceneSession` instead).
-        // swiftlint:disable unused_optional_binding
-        guard let _ = (scene as? UIWindowScene) else { return }
-        // swiftlint:enable unused_optional_binding
+        if (scene as? UIWindowScene) == nil {return}
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
