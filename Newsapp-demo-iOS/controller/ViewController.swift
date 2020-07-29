@@ -19,6 +19,14 @@ class ViewController: UIViewController {
         newsManager.delegate = self
         newsManager.fetchNews()
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard tableView.indexPathForSelectedRow != nil else {
+            return
+        }
+        let selectedNews = news[tableView.indexPathForSelectedRow!.row]
+        let detailVc = segue.destination as? DetailNewsViewController
+        detailVc?.newsItem = selectedNews
+    }
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate, NewsManagerDelegate {
