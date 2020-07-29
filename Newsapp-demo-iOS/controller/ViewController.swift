@@ -28,9 +28,8 @@ extension ViewController: UITableViewDataSource {
         return osList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // swiftlint:disable force_cast
-        let cell = osTableView.dequeueReusableCell(withIdentifier: "osCell") as! OsTableCell
-        // swiftlint:enable force_cast
+        let cell = osTableView.dequeueReusableCell(withIdentifier: "osCell",
+                                                   for: indexPath) as? OsTableCell ?? OsTableCell()
         cell.osName.text = osList[indexPath.row].name
         cell.osImage.image = UIImage(named: osList[indexPath.row].image)
         cell.osDescription.text = osList[indexPath.row].description
