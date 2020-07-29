@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		824CA6D724CAA60E00578F28 /* OperatingSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824CA6D624CAA60E00578F28 /* OperatingSystem.swift */; };
-		824CA6DA24CAA67500578F28 /* OsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824CA6D924CAA67500578F28 /* OsTableCell.swift */; };
-		824CA6DF24CAB5BF00578F28 /* Simulator Screen Shot - iPhone 11 Pro Max - 2020-07-24 at 12.06.57.png in Resources */ = {isa = PBXBuildFile; fileRef = 824CA6DE24CAB5BF00578F28 /* Simulator Screen Shot - iPhone 11 Pro Max - 2020-07-24 at 12.06.57.png */; };
 		82F5B42624C8A2E8005F5D6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F5B42524C8A2E8005F5D6F /* AppDelegate.swift */; };
 		82F5B42824C8A2E8005F5D6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F5B42724C8A2E8005F5D6F /* SceneDelegate.swift */; };
 		82F5B42A24C8A2E8005F5D6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F5B42924C8A2E8005F5D6F /* ViewController.swift */; };
@@ -19,9 +16,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		824CA6D624CAA60E00578F28 /* OperatingSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatingSystem.swift; sourceTree = "<group>"; };
-		824CA6D924CAA67500578F28 /* OsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OsTableCell.swift; sourceTree = "<group>"; };
-		824CA6DE24CAB5BF00578F28 /* Simulator Screen Shot - iPhone 11 Pro Max - 2020-07-24 at 12.06.57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 11 Pro Max - 2020-07-24 at 12.06.57.png"; sourceTree = "<group>"; };
 		82F5B42224C8A2E8005F5D6F /* Newsapp-demo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Newsapp-demo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82F5B42524C8A2E8005F5D6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82F5B42724C8A2E8005F5D6F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,39 +37,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		824CA6D824CAA61500578F28 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				824CA6D624CAA60E00578F28 /* OperatingSystem.swift */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		824CA6DB24CAA67F00578F28 /* view */ = {
-			isa = PBXGroup;
-			children = (
-				82F5B42B24C8A2E8005F5D6F /* Main.storyboard */,
-				824CA6D924CAA67500578F28 /* OsTableCell.swift */,
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		824CA6DC24CAA69400578F28 /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				82F5B42924C8A2E8005F5D6F /* ViewController.swift */,
-			);
-			path = controller;
-			sourceTree = "<group>";
-		};
-		824CA6DD24CAB53D00578F28 /* outputScreenshot */ = {
-			isa = PBXGroup;
-			children = (
-				824CA6DE24CAB5BF00578F28 /* Simulator Screen Shot - iPhone 11 Pro Max - 2020-07-24 at 12.06.57.png */,
-			);
-			path = outputScreenshot;
-			sourceTree = "<group>";
-		};
 		82F5B41924C8A2E8005F5D6F = {
 			isa = PBXGroup;
 			children = (
@@ -95,12 +56,10 @@
 		82F5B42424C8A2E8005F5D6F /* Newsapp-demo-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				824CA6DD24CAB53D00578F28 /* outputScreenshot */,
 				82F5B42524C8A2E8005F5D6F /* AppDelegate.swift */,
 				82F5B42724C8A2E8005F5D6F /* SceneDelegate.swift */,
-				824CA6D824CAA61500578F28 /* model */,
-				824CA6DB24CAA67F00578F28 /* view */,
-				824CA6DC24CAA69400578F28 /* controller */,
+				82F5B42924C8A2E8005F5D6F /* ViewController.swift */,
+				82F5B42B24C8A2E8005F5D6F /* Main.storyboard */,
 				82F5B42E24C8A2EA005F5D6F /* Assets.xcassets */,
 				82F5B43024C8A2EA005F5D6F /* LaunchScreen.storyboard */,
 				82F5B43324C8A2EA005F5D6F /* Info.plist */,
@@ -118,7 +77,6 @@
 				82F5B41E24C8A2E8005F5D6F /* Sources */,
 				82F5B41F24C8A2E8005F5D6F /* Frameworks */,
 				82F5B42024C8A2E8005F5D6F /* Resources */,
-				82D96BBC24CADB2000864895 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -169,33 +127,11 @@
 			files = (
 				82F5B43224C8A2EA005F5D6F /* LaunchScreen.storyboard in Resources */,
 				82F5B42F24C8A2EA005F5D6F /* Assets.xcassets in Resources */,
-				824CA6DF24CAB5BF00578F28 /* Simulator Screen Shot - iPhone 11 Pro Max - 2020-07-24 at 12.06.57.png in Resources */,
 				82F5B42D24C8A2E8005F5D6F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		82D96BBC24CADB2000864895 /* Swiftlint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Swiftlint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		82F5B41E24C8A2E8005F5D6F /* Sources */ = {
@@ -204,8 +140,6 @@
 			files = (
 				82F5B42A24C8A2E8005F5D6F /* ViewController.swift in Sources */,
 				82F5B42624C8A2E8005F5D6F /* AppDelegate.swift in Sources */,
-				824CA6DA24CAA67500578F28 /* OsTableCell.swift in Sources */,
-				824CA6D724CAA60E00578F28 /* OperatingSystem.swift in Sources */,
 				82F5B42824C8A2E8005F5D6F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
