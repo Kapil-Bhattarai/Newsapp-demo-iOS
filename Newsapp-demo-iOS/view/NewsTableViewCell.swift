@@ -24,21 +24,21 @@ class NewsTableViewCell: UITableViewCell {
                 newsImage.image = UIImage(data: cacheData)
                 return
             }
-            let url = URL(string: news.thumbnail)
-            let session = URLSession.shared
-            guard url != nil else {
+            guard let url =  URL(string: news.thumbnail) else {
                 return
             }
-            let dataTask = session.dataTask(with: url!) { (data, _, error) in
-                if error == nil && data != nil {
-                    if url!.absoluteString != news.thumbnail {
-                        return
-                    }
-                    CacheManager.setVideoCache(url!.absoluteString, data!)
-                    let image = UIImage(data: data!)
-                    DispatchQueue.main.async {
-                        self.newsImage.image = image
-                    }
+            let session = URLSession.shared
+            let dataTask = session.dataTask(with: url) { (data, _, error) in
+                guard let data = data, error == nil else {
+                    return
+                }
+                if url.absoluteString != news.thumbnail {
+                    return
+                }
+                CacheManager.setVideoCache(url.absoluteString, data)
+                let image = UIImage(data: data)
+                DispatchQueue.main.async {
+                    self.newsImage.image = image
                 }
             }
             dataTask.resume()
