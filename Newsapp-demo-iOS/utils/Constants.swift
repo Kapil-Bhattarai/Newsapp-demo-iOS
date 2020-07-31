@@ -9,7 +9,8 @@
 import Foundation
 
 struct Constants {
-    static var NewsURL = "https://raw.githubusercontent.com/Genius-Systems-Nepal/Newsapp-demo-iOS/master/mock/feeds.json"
+    private static var BasUrl = "https://raw.githubusercontent.com/Genius-Systems-Nepal"
+    static var NewsURL = "\(BasUrl)/Newsapp-demo-iOS/master/mock/feeds.json"
 
     static var NewsCellname = "newsTableCell"
 }

@@ -16,14 +16,14 @@ struct NewsNetworkResponse: Codable {
 
 // MARK: - Feed
 struct Feed: Codable {
-    let id, title, description, content: String?
+    let title, description, content: String?
     let link: String?
     let encloserurl, encloserType, source, category: String?
     let author, image, uuid, fetchDate: String?
     let pubDate, updateDate: String?
 
     enum CodingKeys: String, CodingKey {
-        case id, title
+        case title
         case description
         case content, link
         case encloserurl
