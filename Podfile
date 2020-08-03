@@ -6,5 +6,7 @@ target 'Newsapp-demo-iOS' do
   use_frameworks!
 
   # Pods for Newsapp-demo-iOS
-pod 'AlamofireImage', '~> 4.1'
+pod 'Alamofire', '~> 5.2'
+platform :ios, '8.0'
+pod 'SDWebImage'
 end
