@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DetailNewsViewController: UIViewController {
     @IBOutlet weak var newsDescription: UILabel!
@@ -25,29 +26,6 @@ class DetailNewsViewController: UIViewController {
         }
         newsDescription.text = newsItem.description
         newsTitle.text = newsItem.title
-        if newsItem.thumbnail != "" {
-            if  let cacheData = CacheManager.getVideoCache(newsItem.thumbnail) {
-                newsImage.image = UIImage(data: cacheData)
-                return
-            }
-            guard let url = URL(string: newsItem.thumbnail) else {
-                return
-            }
-            let session = URLSession.shared
-            let dataTask = session.dataTask(with: url) { (data, _, error) in
-                guard let data = data, error == nil else {
-                    return
-                }
-                if url.absoluteString != self.newsItem!.thumbnail {
-                    return
-                }
-                CacheManager.setVideoCache(url.absoluteString, data)
-                let image = UIImage(data: data)
-                DispatchQueue.main.async {
-                    self.newsImage.image = image
-                }
-            }
-            dataTask.resume()
-        }
+        self.newsImage.sd_setImage(with: URL(string: newsItem.thumbnail))
     }
 }
