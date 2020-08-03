@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol NewsManagerDelegate: AnyObject {
     func didUpdateNews(_ newsManager: NewsManager, _ news: [News])
@@ -18,21 +19,17 @@ struct NewsManager {
         guard let url =  URL(string: "\(Constants.NewsURL)") else {
             return
         }
-        let session  = URLSession.shared
-        let dataTask = session.dataTask(with: url) { (data, _, error) in
-            guard let data = data, error == nil else {
-                return
-            }
+        AF.request(url).response { (response) in
+            guard let data = response.data else {return}
             do {
                 let decoder = JSONDecoder()
-                //decoder.dateDecodingStrategy = .iso8601
                 let news = try decoder.decode(NewsNetworkResponse.self, from: data)
                 let newsItems = news.feeds?.map { ( item: Feed) in
                     News(title: item.title ?? "",
                          description: item.description ?? "",
                          thumbnail: item.image ?? "")
                 }
-                if  let news = newsItems {
+                if let news = newsItems {
                     DispatchQueue.main.async {
                         self.delegate?.didUpdateNews(self, news)
                     }
@@ -42,6 +39,5 @@ struct NewsManager {
                 return
             }
         }
-        dataTask.resume()
     }
 }
