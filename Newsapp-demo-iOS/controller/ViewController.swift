@@ -17,9 +17,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         //print(Realm.Configuration.defaultConfiguration.fileURL ?? nil)
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
         tableView.dataSource = self
         newsManager.delegate = self
-        newsManager.fetchNews(filerBy: nil)
+        if let restorationId = self.restorationIdentifier {
+            if restorationId == "news" {
+                newsManager.fetchNews(filerBy: nil)
+            } else {
+                newsManager.fetchNews(filerBy: "isBookMarked = true")
+            }
+        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard tableView.indexPathForSelectedRow != nil else {
