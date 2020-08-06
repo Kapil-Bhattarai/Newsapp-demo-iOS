@@ -7,9 +7,21 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct News {
-    var title: String = ""
-    var description: String = ""
-    var thumbnail: String = ""
+class News: Object {
+    @objc dynamic var title: String = ""
+    @objc dynamic var descriptions: String = ""
+    @objc dynamic var thumbnail: String = ""
+    @objc dynamic var isBookMarked: Bool = false
+    convenience  init(newsTitle title: String,
+                      newsDescriptions descriptions: String,
+                      image thumbnail: String,
+                      save isBookMarked: Bool) {
+        self.init()
+        self.title = title
+        self.descriptions = descriptions
+        self.thumbnail = thumbnail
+        self.isBookMarked = isBookMarked
+    }
 }
