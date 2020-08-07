@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -14,10 +15,19 @@ class ViewController: UIViewController {
     var newsManager = NewsManager()
     override func viewDidLoad() {
         super.viewDidLoad()
+        //print(Realm.Configuration.defaultConfiguration.fileURL ?? nil)
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
         tableView.dataSource = self
         newsManager.delegate = self
-        newsManager.fetchNews()
+        if let restorationId = self.restorationIdentifier {
+            if restorationId == "news" {
+                newsManager.fetchNews(filerBy: nil)
+            } else {
+                newsManager.fetchNews(filerBy: "isBookMarked = true")
+            }
+        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard tableView.indexPathForSelectedRow != nil else {
@@ -37,6 +47,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate, NewsManage
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(Constants.NewsCellname)",
             for: indexPath) as? NewsTableViewCell ?? NewsTableViewCell()
         cell.setCell(news: news[indexPath.row])
+        cell.delegate = self
         return cell
     }
     func didUpdateNews(_ newsManager: NewsManager, _ news: [News]) {
@@ -45,5 +56,23 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate, NewsManage
     }
     func didFailWithError(_ error: Error) {
         print(error)
+    }
+}
+extension ViewController: NewsTableViewCellDelegate {
+    func onBookmarkClicked(_ cell: NewsTableViewCell, _ sender: UIButton) {
+        let buttonPosition = sender.convert(CGPoint.zero, to: self.tableView)
+        if let indexPath = self.tableView.indexPathForRow(at: buttonPosition) {
+            if let cell = self.tableView.cellForRow(at: indexPath) as? NewsTableViewCell {
+                guard let realm = try? Realm() else { return }
+                if news[indexPath.row].isBookMarked {
+                    cell.bookmarkImage.setImage(UIImage(systemName: "bookmark"), for: .normal)
+                } else {
+                    cell.bookmarkImage.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+                }
+                try? realm.write {
+                    news[indexPath.row].isBookMarked = !news[indexPath.row].isBookMarked
+                }
+            }
+        }
     }
 }

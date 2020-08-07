@@ -9,4 +9,6 @@ target 'Newsapp-demo-iOS' do
 pod 'Alamofire', '~> 5.2'
 platform :ios, '8.0'
 pod 'SDWebImage'
+use_frameworks!
+pod 'RealmSwift'
 end

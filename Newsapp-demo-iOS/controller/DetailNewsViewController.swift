@@ -26,7 +26,7 @@ class DetailNewsViewController: UIViewController {
         guard let newsItem = newsItem else {
             return
         }
-        newsDescription.text = newsItem.description
+        newsDescription.text = newsItem.descriptions
         newsTitle.text = newsItem.title
         self.newsImage.sd_setImage(with: URL(string: newsItem.thumbnail))
     }
