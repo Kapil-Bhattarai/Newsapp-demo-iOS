@@ -27,7 +27,8 @@ struct NewsManager {
                 let newsItems = news.feeds?.map { ( item: Feed) in
                     News(title: item.title ?? "",
                          description: item.description ?? "",
-                         thumbnail: item.image ?? "")
+                         thumbnail: item.image ?? "",
+                         link: item.link ?? "")
                 }
                 if let news = newsItems {
                     DispatchQueue.main.async {

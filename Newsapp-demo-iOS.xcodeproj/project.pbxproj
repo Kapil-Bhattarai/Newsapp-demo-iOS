@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -141,7 +141,6 @@
 				A82B3675D58A738A8D85DF0B /* Pods-Newsapp-demo-iOS.debug.xcconfig */,
 				D536B30E75306B7234710608 /* Pods-Newsapp-demo-iOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
