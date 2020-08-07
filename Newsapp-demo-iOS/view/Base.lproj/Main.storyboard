@@ -129,7 +129,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="rBw-Ut-fh0">
-                                <rect key="frame" x="20" y="20" width="374" height="263"/>
+                                <rect key="frame" x="20" y="20" width="374" height="303"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="News Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXH-Kw-5Cb" userLabel="newsTitle">
                                         <rect key="frame" x="0.0" y="0.0" width="99" height="24"/>
@@ -149,6 +149,15 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvy-gG-dhc" userLabel="full news">
+                                        <rect key="frame" x="0.0" y="267" width="123" height="36"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="See Full News"/>
+                                        <connections>
+                                            <action selector="onFullNewsClicked:" destination="ihA-Vv-Raz" eventType="touchUpInside" id="TbH-yc-8vF"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -163,6 +172,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="YfV-na-YZI"/>
                     <navigationItem key="navigationItem" id="4Ij-FN-Iow"/>
                     <connections>
+                        <outlet property="fullNews" destination="Nvy-gG-dhc" id="hly-Mb-KqP"/>
                         <outlet property="newsDescription" destination="w9f-3u-fyB" id="dRa-Re-sQq"/>
                         <outlet property="newsImage" destination="zGY-mh-rpM" id="I1y-fO-1RU"/>
                         <outlet property="newsTitle" destination="dXH-Kw-5Cb" id="wAe-m1-jev"/>

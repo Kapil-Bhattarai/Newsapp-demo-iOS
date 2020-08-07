@@ -42,7 +42,8 @@ struct NewsManager {
                     let finalNews = News(newsTitle: item.title ?? "",
                          newsDescriptions: item.description ?? "",
                          image: item.image ?? "",
-                         save: false
+                         save: false,
+                         newsLink: item.link ?? ""
                     )
                     realm.add(finalNews)
                     return finalNews

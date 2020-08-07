@@ -8,10 +8,12 @@
 
 import UIKit
 import SDWebImage
+import SafariServices
 
 class DetailNewsViewController: UIViewController {
     @IBOutlet weak var newsDescription: UILabel!
     @IBOutlet weak var newsImage: UIImageView!
+    @IBOutlet weak var fullNews: UIButton!
     @IBOutlet weak var newsTitle: UILabel!
     var newsItem: News?
     override func viewDidLoad() {
@@ -27,5 +29,9 @@ class DetailNewsViewController: UIViewController {
         newsDescription.text = newsItem.descriptions
         newsTitle.text = newsItem.title
         self.newsImage.sd_setImage(with: URL(string: newsItem.thumbnail))
+    }
+    @IBAction func onFullNewsClicked(_ sender: Any) {
+        let browserVc = SFSafariViewController(url: URL(string: newsItem!.link)!)
+        present(browserVc, animated: true)
     }
 }

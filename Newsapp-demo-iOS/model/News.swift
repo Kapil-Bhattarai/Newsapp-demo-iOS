@@ -14,14 +14,17 @@ class News: Object {
     @objc dynamic var descriptions: String = ""
     @objc dynamic var thumbnail: String = ""
     @objc dynamic var isBookMarked: Bool = false
+    @objc dynamic var link: String = ""
     convenience  init(newsTitle title: String,
                       newsDescriptions descriptions: String,
                       image thumbnail: String,
-                      save isBookMarked: Bool) {
+                      save isBookMarked: Bool,
+                      newsLink link: String) {
         self.init()
         self.title = title
         self.descriptions = descriptions
         self.thumbnail = thumbnail
         self.isBookMarked = isBookMarked
+        self.link = link
     }
 }
