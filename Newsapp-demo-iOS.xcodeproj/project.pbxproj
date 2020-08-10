@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		82693C7A24DBDC2900E9AF7B /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82693C7924DBDC2900E9AF7B /* BookmarkViewController.swift */; };
 		82EF1E2E24D15ED80026F4D8 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EF1E2D24D15ED80026F4D8 /* NewsTableViewCell.swift */; };
 		82EF1E3124D168510026F4D8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EF1E3024D168510026F4D8 /* Constants.swift */; };
 		82EF1E3324D177730026F4D8 /* NewsNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EF1E3224D177730026F4D8 /* NewsNetworkResponse.swift */; };
@@ -25,7 +24,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		82693C7924DBDC2900E9AF7B /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		82EF1E2D24D15ED80026F4D8 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		82EF1E3024D168510026F4D8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		82EF1E3224D177730026F4D8 /* NewsNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsNetworkResponse.swift; sourceTree = "<group>"; };
@@ -80,7 +78,6 @@
 			children = (
 				82F5B42924C8A2E8005F5D6F /* ViewController.swift */,
 				82EF1E3A24D18A560026F4D8 /* DetailNewsViewController.swift */,
-				82693C7924DBDC2900E9AF7B /* BookmarkViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -281,7 +278,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82693C7A24DBDC2900E9AF7B /* BookmarkViewController.swift in Sources */,
 				82EF1E3124D168510026F4D8 /* Constants.swift in Sources */,
 				82EF1E3924D181BF0026F4D8 /* CacheManager.swift in Sources */,
 				82EF1E3B24D18A560026F4D8 /* DetailNewsViewController.swift in Sources */,

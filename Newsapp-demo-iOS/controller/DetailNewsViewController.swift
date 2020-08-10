@@ -21,6 +21,11 @@ class DetailNewsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "isDarkTheme") {
+            overrideUserInterfaceStyle = .dark
+        } else {
+            overrideUserInterfaceStyle = .light
+        }
         newsDescription.text = ""
         newsTitle.text = ""
         guard let newsItem = newsItem else {
