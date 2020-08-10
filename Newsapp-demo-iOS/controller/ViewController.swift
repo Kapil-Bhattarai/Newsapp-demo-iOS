@@ -22,7 +22,13 @@ class ViewController: UIViewController {
         tabBar = self.tabBarController?.tabBar
     }
     override func viewWillAppear(_ animated: Bool) {
-        changeTheme(isDarkTheme: UserDefaults.standard.bool(forKey: "isDarkTheme"))
+        let isThemeSelected = UserDefaults.standard.bool(forKey: "isDarkTheme")
+        changeTheme(isDarkTheme: isThemeSelected)
+        if isThemeSelected {
+            themeSwitch?.isOn = true
+        } else {
+             themeSwitch?.isOn = false
+        }
         tableView.dataSource = self
         newsManager.delegate = self
         if let restorationId = self.restorationIdentifier {
