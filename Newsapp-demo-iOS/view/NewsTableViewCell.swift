@@ -7,41 +7,33 @@
 //
 
 import UIKit
+import SDWebImage
+
+protocol NewsTableViewCellDelegate: AnyObject {
+    func onBookmarkClicked(_ cell: NewsTableViewCell, _ sender: UIButton)
+}
 
 class NewsTableViewCell: UITableViewCell {
     @IBOutlet weak var newsDescription: UILabel!
     @IBOutlet weak var newsImage: UIImageView!
     @IBOutlet weak var newsTitleLabel: UILabel!
+    @IBOutlet weak var bookmarkImage: UIButton!
+    weak var delegate: NewsTableViewCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     func setCell(news: News) {
         newsTitleLabel.text = news.title
-        newsDescription.text = news.description
-        if news.thumbnail != "" {
-            if  let cacheData = CacheManager.getVideoCache(news.thumbnail) {
-                newsImage.image = UIImage(data: cacheData)
-                return
-            }
-            guard let url =  URL(string: news.thumbnail) else {
-                return
-            }
-            let session = URLSession.shared
-            let dataTask = session.dataTask(with: url) { (data, _, error) in
-                guard let data = data, error == nil else {
-                    return
-                }
-                if url.absoluteString != news.thumbnail {
-                    return
-                }
-                CacheManager.setVideoCache(url.absoluteString, data)
-                let image = UIImage(data: data)
-                DispatchQueue.main.async {
-                    self.newsImage.image = image
-                }
-            }
-            dataTask.resume()
-        }
+        newsDescription.text = news.descriptions
+        self.newsImage.sd_setImage(with: URL(string: news.thumbnail))
+        if news.isBookMarked {
+            self.bookmarkImage.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+       } else {
+           self.bookmarkImage.setImage(UIImage(systemName: "bookmark"), for: .normal)
+       }
+    }
+    @IBAction func onBookmarkClicked(_ sender: UIButton) {
+         delegate?.onBookmarkClicked(self, sender)
     }
 }
